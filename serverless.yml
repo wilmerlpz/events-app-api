@@ -13,7 +13,7 @@ custom:
   stage: ${opt:stage, self:provider.stage}
   # Set the table name here so we can use it while testing locally
   tableName: ${self:custom.stage}-events
-  appStageName: ${self:custom.stage}-events
+  appName: events
 
   # Set our DynamoDB throughput for prod and all other non-prod stages.
   tableThroughputs:
