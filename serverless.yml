@@ -123,7 +123,7 @@ functions:
 # Create our resources with separate CloudFormation templates
 resources:
   # DynamoDB
-  - ${file(resources/dynamodb-table.yml)}
+  - ${file(resources/dynamodb-tables.yml)}
   # S3
   - ${file(resources/s3-bucket.yml)}
   # Cognito
