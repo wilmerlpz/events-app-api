@@ -4,20 +4,13 @@ import { success, failure } from "./libs/response-lib";
 
 export async function main(event, context, callback) {
   const data = JSON.parse(event.body);
+  console.log("process.env.TableName: ", process.env.TableName);
   const params = {
     TableName: process.env.tableName,
     Item: {
       userId: event.requestContext.identity.cognitoIdentityId,
       eventId: uuid.v1(),
-      name: data.name,
-      description: data.description,
-      location:data.location,
-      coordinates:data.coordinates, 
-      status: data.status,
-      category:data.category,
-      country: data.country,
-      state:data.state,
-      city:data.city,
+      content: data.content,
       attachment: data.attachment,
       createdAt: Date.now(),
       modifiedAt: Date.now(),
@@ -25,10 +18,13 @@ export async function main(event, context, callback) {
     }
   };
 
+  console.log(data);
+  console.log("Params:", params);
+
   try {
     await dynamoDbLib.call("put", params);
     callback(null, success(params.Item));
   } catch (e) {
-    callback(null, failure({ status: false }));
+    callback(null, failure({ status: false,  TableName: process.env.TableName, errormsg: e }));
   }
 }
