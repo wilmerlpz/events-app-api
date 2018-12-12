@@ -24,6 +24,6 @@ export async function main(event, context, callback) {
   } catch (e) {
     console.log("Error:");
     console.log(e);
-    callback(null, failure({ status: false }));
+    callback(null, failure({ status: false, errormsg: e  }));
   }
 }

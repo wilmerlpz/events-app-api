@@ -3,7 +3,7 @@ import { success, failure } from "./libs/response-lib";
 
 export async function main(event, context, callback) {
   const params = {
-    TableName: "notes",
+    TableName: process.env.tableName,
     // 'KeyConditionExpression' defines the condition for the query
     // - 'userId = :userId': only return items with matching 'userId'
     //   partition key
@@ -21,6 +21,6 @@ export async function main(event, context, callback) {
     // Return the matching list of items in response body
     callback(null, success(result.Items));
   } catch (e) {
-    callback(null, failure({ status: false }));
+    callback(null, failure({ status: false, errormsg: e  }));
   }
 }
