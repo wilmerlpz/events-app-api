@@ -8,32 +8,6 @@ Resources:
           AttributeType: S
         - AttributeName: eventId
           AttributeType: S
-        - AttributeName: name
-          AttributeType: S
-        - AttributeName: description
-          AttributeType: S
-        - AttributeName: location
-          AttributeType: S
-        - AttributeName: coordinates
-          AttributeType: S
-        - AttributeName: status
-          AttributeType: S
-        - AttributeName: category
-          AttributeType: S
-        - AttributeName: country
-          AttributeType: S
-        - AttributeName: state
-          AttributeType: S
-        - AttributeName: city
-          AttributeType: S
-        - AttributeName: attachment
-          AttributeType: S
-        - AttributeName: createdAt
-          AttributeType: N
-        - AttributeName: modifiedAt
-          AttributeType: N
-        - AttributeName: updatedAt
-          AttributeType: N
       KeySchema:
         - AttributeName: userId
           KeyType: HASH
