@@ -20,6 +20,7 @@ export async function main(event, context, callback) {
       createdAt: Date.now(),
       modifiedAt: Date.now(),
       updatedAt: Date.now(),
+      location: data.location
     }
   };
 
