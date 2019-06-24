@@ -30,6 +30,6 @@ export async function main(event, context, callback) {
     const result = await dynamoDbLib.call("update", params);
     callback(null, success({ status: true }));
   } catch (e) {
-    callback(null, failure({ status: false }));
+    callback(null, failure({ status: false,  TableName: process.env.TableName, errormsg: e }));
   }
 }
