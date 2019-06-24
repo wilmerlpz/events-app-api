@@ -14,11 +14,14 @@ export async function main(event, context, callback) {
     },
     // 'UpdateExpression' defines the attributes to be updated
     // 'ExpressionAttributeValues' defines the value in the update expression
-    UpdateExpression: "SET name= :name, mainPhoto = :mainPhoto, description = :description",
+    UpdateExpression: "SET name= :name, mainPhoto = :mainPhoto, description = :description, location = :location, modifiedAt = :modifiedAt, updatedAt = : updatedAt ",
     ExpressionAttributeValues: {
       ":name": data.name ? data.name : null,
-      ":mainPhoto": data.mainPhoto ? data.mainPhoto : null,
-      ":description": data.description ? data.description : null
+      ":mainPhoto": data.attachment ? data.attachment : null,
+      ":description": data.description ? data.description : null,
+      "location": data.location,
+      "modifiedAt": Date.now(),
+      "updatedAt": Date.now(),
     },
     ReturnValues: "ALL_NEW"
   };
